@@ -2,11 +2,17 @@ package org.app.service.entities;
 import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+@Entity
 
 public class TipTeste {
 	@Id
 	private int IdTipTest;
 	private String TipTest;
+	
+	@OneToOne
+	private Test Test;
+	
 	public int getIdTipTest() {
 		return IdTipTest;
 	}

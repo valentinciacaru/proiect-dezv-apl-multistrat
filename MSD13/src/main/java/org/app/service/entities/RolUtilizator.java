@@ -2,12 +2,18 @@ package org.app.service.entities;
 import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+@Entity
 
 public class RolUtilizator {
 	@Id
 	private int IdUtilizator;
 	private String Rol;
 	private String DescriereRol;
+	
+	@ManyToOne
+	private Utilizatori Utilizator;
+	
 	public int getIdUtilizator() {
 		return IdUtilizator;
 	}

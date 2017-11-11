@@ -2,12 +2,54 @@ package org.app.service.entities;
 import java.util.*;  
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
+import static javax.persistence.CascadeType.ALL;
+@Entity
 
 public class Proiect {
 	@Id
 	private int IdProiect;
 	private String NumeProiect;
+	private String DescriereProiect;
+	
+	@OneToMany(mappedBy="Proiect", cascade = ALL, orphanRemoval = false)
+	private List<Utilizatori> ListaUtilizatori = new ArrayList<>();
+	
+	@OneToMany(mappedBy="Proiect", cascade = ALL, orphanRemoval = false)
+	private List<Test> ListaTeste = new ArrayList<>();
+	
+	public int getIdProiect() {
+		return IdProiect;
+	}
+	public void setIdProiect(int idProiect) {
+		IdProiect = idProiect;
+	}
+	public String getNumeProiect() {
+		return NumeProiect;
+	}
+	public void setNumeProiect(String numeProiect) {
+		NumeProiect = numeProiect;
+	}
+	public String getDescriereProiect() {
+		return DescriereProiect;
+	}
+	public void setDescriereProiect(String descriereProiect) {
+		DescriereProiect = descriereProiect;
+	}
+	public Proiect(int idProiect, String numeProiect, String descriereProiect) {
+		super();
+		IdProiect = idProiect;
+		NumeProiect = numeProiect;
+		DescriereProiect = descriereProiect;
+	}
+	public Proiect() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Proiect [IdProiect=" + IdProiect + ", NumeProiect=" + NumeProiect + ", DescriereProiect="
+				+ DescriereProiect + "]";
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -40,38 +82,9 @@ public class Proiect {
 			return false;
 		return true;
 	}
-	@Override
-	public String toString() {
-		return "Proiect [IdProiect=" + IdProiect + ", NumeProiect=" + NumeProiect + ", DescriereProiect="
-				+ DescriereProiect + "]";
+	public void setUtilizatori(List<Utilizatori> listaUtilizatori2) {
+		// TODO Auto-generated method stub
+		
 	}
-	public Proiect() {
-		super();
-	}
-	public Proiect(int idProiect, String numeProiect, String descriereProiect) {
-		super();
-		IdProiect = idProiect;
-		NumeProiect = numeProiect;
-		DescriereProiect = descriereProiect;
-	}
-	public int getIdProiect() {
-		return IdProiect;
-	}
-	public void setIdProiect(int idProiect) {
-		IdProiect = idProiect;
-	}
-	public String getNumeProiect() {
-		return NumeProiect;
-	}
-	public void setNumeProiect(String numeProiect) {
-		NumeProiect = numeProiect;
-	}
-	public String getDescriereProiect() {
-		return DescriereProiect;
-	}
-	public void setDescriereProiect(String descriereProiect) {
-		DescriereProiect = descriereProiect;
-	}
-	private String DescriereProiect;
 
 }

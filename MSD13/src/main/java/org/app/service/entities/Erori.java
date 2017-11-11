@@ -2,6 +2,7 @@ package org.app.service.entities;
 import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity 
@@ -10,6 +11,10 @@ public class Erori {
 	private int IdEroare;
 	private String DescriereEroare;
 	private String StatusEroare;
+	
+	@ManyToOne
+	private Test Test;
+	
 	public int getIdEroare() {
 		return IdEroare;
 	}

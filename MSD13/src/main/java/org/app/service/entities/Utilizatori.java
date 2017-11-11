@@ -1,13 +1,25 @@
 package org.app.service.entities;
+import static javax.persistence.CascadeType.ALL;
+
 import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+@Entity
 public class Utilizatori {
 	@Id
 	private int IdUtilizator;
 	private String NumePrenume ;
 	private String EmailUtilizator;
+	
+	@ManyToOne
+	private Proiect Proiect;
+	
+	@OneToMany(mappedBy="Utilizator", cascade = ALL, orphanRemoval = false)
+	private List<RolUtilizator> ListaRoluri = new ArrayList<>();
+	
 	public int getIdUtilizator() {
 		return IdUtilizator;
 	}

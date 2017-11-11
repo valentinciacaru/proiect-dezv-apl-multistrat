@@ -1,8 +1,13 @@
 package org.app.service.entities;
-import java.util.Date;
+import static javax.persistence.CascadeType.ALL;
+
 import java.util.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+@Entity
 
 public class Test {
 	@Id
@@ -10,6 +15,16 @@ public class Test {
 	private int IdTipTest;
 	private String DescriereTest;
 	private Date DataTest;
+	
+	@ManyToOne
+	private Proiect Proiect;
+	
+	@OneToMany(mappedBy="Test", cascade = ALL, orphanRemoval = false)
+	private List<Erori> ListaErori = new ArrayList<>();
+	
+	@OneToOne
+	private TipTeste Tip;
+	
 	public int getIdTest() {
 		return IdTest;
 	}
