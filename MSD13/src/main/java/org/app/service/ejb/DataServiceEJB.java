@@ -10,7 +10,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-
+import org.app.patterns.EntityRepository;
+import org.app.patterns.EntityRepositoryBase;
+import org.app.service.entities.EntityBase;
 
 /**
  * Session Bean implementation class ScrumTeamRepositoryService
