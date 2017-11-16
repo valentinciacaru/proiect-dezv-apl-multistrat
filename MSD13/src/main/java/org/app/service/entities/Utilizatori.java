@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Utilizatori {
 	@Id
-	private int IdUtilizator;
+	private Integer IdUtilizator;
 	private String NumePrenume ;
 	private String EmailUtilizator;
 	
